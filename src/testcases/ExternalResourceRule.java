@@ -25,33 +25,4 @@ public class ExternalResourceRule {
 			System.out.println("DB disconnected");
 		}
 	};
-	
-	@Rule
-	public ErrorCollector ec = new ErrorCollector();
-	
-	@Category(CategoryClass.class)
-	@Test
-	public void test1() {
-		assertSame(null, null);
-	}
-	
-	@Test
-	public void test2() {
-		try {
-			throw new Throwable("throw error");
-		} catch (Throwable e) {
-			ec.addError(e);
-		}
-		
-		Callable<?> callback = new Callable<Object>() {
-
-			@Override
-			public Object call() {
-				System.out.println("catch error");
-				return null;
-			}
-			
-		};
-		ec.checkSucceeds(callback);
-	}
 }
