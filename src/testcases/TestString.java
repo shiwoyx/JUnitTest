@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestString {
 	@Test
 	public void testToString() {
-		String testStr = "Hello";
-		Assert.assertSame("Strings are the same", "Hello", testStr.toString());
+		String testStr = "Hello, you";
+		Assert.assertSame("Strings are the same", "Hello, you", testStr.toString());
 	}
 }
